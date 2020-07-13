@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //generate nav items according to sections
     const navList = document.createElement("ul");;
+    navList.id = "nav-list";
     for(section of sections){
         navList.innerHTML += `
         <li><a href="#${section.id}">${section.dataset.sectionName}</a></li>`
