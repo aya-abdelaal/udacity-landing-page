@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPaint</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <!--background illustration-->
+        <div id="background-pink"> </div>
+        <div id="background-yellow"></div>
+        <div id="background-blue"></div>
+        <!--navigation icon (for mobile)-->
+        <img src="images/mobile-nav-icon.png" alt="navigation menu" id="nav-icon">
+        <!--navigation bar-->
+        <nav>
+            <!--navigation close icon (for mobile)-->
+            <img src="images/mobile-nav-close.png" alt="close navigation" id="nav-close">
+            <!--Navigation items (to be added dynamically using javascript)-->
+            <ul id="nav-list"></ul>
+        </nav>
+        <div id="header-title">
+        <h1>EasyPaint</h1>
+        <p>Color your life</p>
+        </div>
+    </header>
+    <section class="main-section" data-section-name="About Us" id="section-about-us">
+        <img src="images/pink-wall-paint.jpg" alt="EasyPaint wall paint">
+        <article>
+            <h2>About Us</h2>
+            <p>With EasyPaint, you don't need to worry about priming and sealing your 
+                surface. Our unique formula offerrs that for you ! Lorem ipsum dolor sit amet, 
+                consectetur adipiscing elit. Pellentesque scelerisque velit lacus, non mollis 
+                diam tempor eget. Duis a luctus ex. Proin at velit vitae mauris congue fermentum.
+                 Aliquam ultricies sodales lectus. Suspendisse vel ligula velit. Vivamus at massa risus.</p>
+        </article>
+    </section>
+    <section class="main-section" data-section-name="Products" id="section-products">
+        <h2>Products</h2>
+        <div id="product-cards">
+            <div class="card" id="card1">
+                <h3>Plastic paint</h3>
+                    <ul><p>Features :</p>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+            </div>
+            <div class="card" id="card2">
+                <h3>Wood paint</h3>
+                    <ul><p>Features :</p>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+            </div>
+            <div class="card" id="card3">
+                <h3>Wall paint</h3>
+                    <ul><p>Features :</p>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+    <section class="main-section" data-section-name="Buy Now" id="section-buy-now">
+        <h2>Buy EasyPaint at </h2>
+        <div id="buy-buttons">
+            <button id="button1">Souq</button>
+            <button id="button2">Noon</button>
+            <button id="button3">Jumia</button>
+        </div>
+    </section>
+    <section class="main-section" data-section-name="Contact Us" id="section-contact-us">
+        <h3>Contact us</h3>
+        <ul>
+            <li>Number : +20dummynumber</li>
+            <li>Email : EasyPaint@dummy.com </li>
+        </ul>
+    </section>
+    <footer>
+        <form action="" method="POST">
+            <label for="email">Join our mailing list !</label>
+            <input id="email" type="email" name="email">
+            <input type="submit" id="submit">
+        </form>
+    </footer>
+    <button id="jump-to-top"><a href="#background-pink">Jump to top</a></button>
+</body>
+</html>
+
