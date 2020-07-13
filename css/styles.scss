@@ -1,0 +1,383 @@
+$colors: (
+    "grey": rgba(242,240,240,0.71),
+    "blue" : rgb(99,230,238),
+    "pink" : rgb(252, 81, 132),
+    "yellow" : rgb(252, 227, 138),
+);
+
+@font-face{
+    font-family: brawler;
+    src: url(../fonts/brawler/Brawler-Regular.ttf);
+}
+
+@mixin desktop {
+    @media screen and (min-width: 700px){
+        @content;
+    }
+}
+
+*{
+    box-sizing: border-box;
+    font-family: brawler;
+    line-height: 1.2em;
+}
+
+h1,
+h2 {
+    letter-spacing: 0.15em;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header{
+    height: 50vh;
+    width: 100vw;
+    margin: 0;
+    background: map-get($colors,"grey");
+    position: relative;
+
+    #background-pink{
+        background: map-get($colors, "pink" );
+        height: 25%;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    #background-yellow{
+        background: map-get($colors, "yellow" );
+        height: 35%;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 25%;
+    }
+
+    #background-blue{
+        background: map-get($colors, "blue" );
+        clip-path: polygon(100% 0, 0% 100%, 0 0);
+        width: 75%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+       z-index: 1;
+    }
+
+   #header-title{
+        z-index: 2;
+        position: absolute;
+        top: 25%;
+        left: 8vw;
+        text-transform: uppercase;
+
+        h1{
+            margin-bottom: 0;
+        }
+
+        p{
+            text-indent: 2em;
+            margin-top: 0.5em;
+        }
+
+        @include desktop(){
+            font-size: 1.5em;
+            left: 20vw;
+            top: 30%;
+        }
+    }
+    
+
+    #nav-icon{
+        position: absolute;
+        right: 3%;
+        top: 5%;
+        z-index: 2;
+        cursor: pointer;
+
+        @include desktop(){
+            display: none;
+        }
+    }
+    
+    nav{
+        width: 60vw;
+        height: 100vh;
+        background: rgb(242,240,240);
+        margin: 0;
+        position: fixed;
+        right: -60vw;
+        top: 0;
+        z-index: 3;
+        transition: 0.7s ease-out;
+        overflow-y: scroll;
+
+        @include desktop(){
+            right: 0;
+            height: 70px;
+            width: 100%;
+            overflow-y: hidden;
+        }
+
+        #nav-close{
+            margin: 1em 1em 0;
+            cursor: pointer;
+
+            @include desktop(){
+                display: none;
+            }
+
+        }
+        
+        #nav-list{
+            list-style-type: none;
+            margin: 0;
+
+            @include desktop(){
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            a, 
+            a:link,
+            a:visited{
+                margin: 0.5em;
+                padding: 1em;
+                display: block;
+                width: 70%;
+                text-decoration: none;
+                color: black;
+
+                @include desktop(){
+                    width: auto;
+                }
+            }
+
+            a:hover{
+                animation: nav-hover 1.5s ease-in-out forwards ;
+            }
+            
+            @keyframes nav-hover {
+                from{border: 0px solid rgba(0,0,0,0.2);}
+                to{ border: 1px solid black; border-right: 0; border-left: 0; }
+            }
+        }
+    }
+}
+
+//change
+.main-section.active{
+    background-color: map-get($colors, "grey");
+}
+
+#section-about-us{
+    padding: 1em;
+
+    @include desktop(){
+        display: flex;
+        align-items: center;
+    }
+
+    img{
+        width: 40vw;
+        height: auto;
+        margin: 1em 1em 0;
+        float: left;
+
+        @include desktop(){
+            width: 25vw;
+            margin: 1em 2em 0;
+        }
+    }
+
+    //clearfix
+    article::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+        h2{
+        margin: 0.5em 0.5em 0 1em;
+        }
+}
+
+#section-products{
+    padding: 1em;
+
+    h2{
+        text-align: center;
+    }
+
+    #product-cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include desktop(){
+            flex-direction: row;
+        }
+
+        .card{
+            background: white;
+            width: 80%;
+            margin: 2em;
+            padding: 1em;
+            text-align: center;
+
+            @include desktop(){
+                width: 30%;
+            }
+
+            ul{
+                list-style-position: inside;
+                padding-inline-start: 0;
+
+                @include desktop(){
+                    width: 80%;
+                    margin:1em auto;
+                }
+
+                li{
+                    margin: 0.3em;
+                }
+            }
+        }
+
+        #card1{
+            box-shadow: 0 0 7px map-get($colors, "pink" );
+        }
+
+        #card2{
+            box-shadow: 0 0 7px map-get($colors, "yellow" );
+        }
+
+        #card3{
+            box-shadow: 0 0 7px map-get($colors, "blue" );
+        }
+    }
+}
+
+#section-buy-now{
+    padding: 1em;
+    h2{
+        text-align: center;
+        width: 90%;
+        margin: 1em auto;
+
+        @include desktop(){
+            margin: 1em auto 2em;
+        }
+    }
+
+    #buy-buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include desktop(){
+            flex-direction: row;
+            justify-content: space-around;
+        }
+         
+        button{
+            width: 80%;
+            margin: 1em;
+            border: none;
+            padding: 1em;
+
+            @include desktop(){
+                width: 25%;
+            }
+        }
+
+         //check why not working
+         #button1{
+            border: 2px solid map-get($colors, "blue");
+            color: map-get($colors, "blue");
+            background:  rgba(255, 255, 255, 0.3);
+        }
+        #button1:hover{
+            background: map-get($colors, "blue" );
+            color: black;
+        }
+
+        #button2{
+            border: 2px solid map-get($colors, "yellow");
+            color: map-get($colors, "yellow");
+            background: rgba(255, 255, 255, 0.3);
+        }
+        #button2:hover{
+            background: map-get($colors, "yellow" );
+            color: black;
+        }
+
+        #button3{
+            border: 2px solid map-get($colors, "pink");
+            color: map-get($colors, "pink");
+            background: rgba(255, 255, 255, 0.3);
+        }
+        #button3:hover{
+            background: map-get($colors, "pink" );
+            color: black;
+        }
+    }
+}
+
+#section-contact-us{
+    padding: 1em;
+    text-align: center;
+
+    ul{
+        list-style-type: none;
+        margin: auto;
+        width: 80%;
+        background: white;
+        box-shadow: 0 0 5px map-get($colors, "blue");
+        padding-inline-start: 0;
+
+        li{
+            padding: 1em;
+            line-height: 1.5em;
+        }
+    }
+}
+
+footer{
+    background: map-get($colors, "grey");
+    padding: 1em;
+    text-align: center;
+    
+    #email{
+        margin: 0.5em auto;
+        display: block;
+        max-width: 50%;
+    }
+
+    #submit{
+        display: block;
+        margin: auto;
+        padding: 0.3em;
+    }
+}
+
+#jump-to-top{
+    margin: 1em auto;
+    padding: 0.5em;
+    display: block;
+    background: white;
+    border: 1px solid black;
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+#jump-to-top:hover{
+    background: map-get($colors, "grey" );
+}
