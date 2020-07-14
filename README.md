@@ -1,8 +1,9 @@
 # udacity-landing-page
 
-## overview 
+## project desription
 This is a simple responsive landing page for a dummy product - EasyPaint.
 
+## technologies used
 It uses HTML for markup, sass compiled into css for styling, and javascript for functionality.
 
 ## functionality 
@@ -15,3 +16,6 @@ The landing page :
 - hides the navbar on scroll
 - allows for smooth scrolling when navbar item is clicked
 - alerts a message on the submission of a form
+
+## auhor's name
+Aya Abdelaal
