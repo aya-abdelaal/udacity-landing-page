@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     else {
         observerThreshold = 0.75;
-        observerMargin = "-30% 0% 0%";
+        observerMargin = "-5% 0% -25%";
     }
 
     const sectionObserver = new IntersectionObserver(function(entries,sectionObserver) {
