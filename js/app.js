@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navList.id = "nav-list";
     for(section of sections){
         navList.innerHTML += `
-        <li><a href="#${section.id}">${section.dataset.sectionName}</a></li>`
+        <li class="nav-item"><a href="#${section.id}">${section.dataset.sectionName}</a></li>`
     }
     nav.appendChild(navList);
 
@@ -53,19 +53,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const scroll = new SmoothScroll('a[href*="#"]',{speed:1000});
 
     //differrentiate active sections
+    const navItems = document.getElementsByClassName("nav-item");
+    let observerThreshold, observerMargin;
+    if (viewportWidth < 700){
+        observerThreshold = 0.3;
+        observerMargin = "-20% 0% -30%";
+        }
+    else {
+        observerThreshold = 0.75;
+        observerMargin = "-30% 0% 0%";
+    }
+
     const sectionObserver = new IntersectionObserver(function(entries,sectionObserver) {
         for (entry of entries){
             let tempSection = entry.target;
+            let tempItem;
+            // find nav item corresponding to section 
+            for (item of navItems){
+                if (item.innerText == tempSection.dataset.sectionName){
+                    tempItem = item;
+                }
+            }
             if(entry.isIntersecting){
-            tempSection.classList.add("active");
+                tempSection.classList.add("active");
+                tempItem.classList.add("active");
              }
             else{
-            tempSection.classList.remove("active");
+                tempSection.classList.remove("active");
+                tempItem.classList.remove("active");
             }
         }
     },{
-        rootMargin: "-30% 0%",
-        threshold: 0.25
+        rootMargin: observerMargin,
+        threshold: observerThreshold,
     });
     for(section of sections){
      sectionObserver.observe(section);

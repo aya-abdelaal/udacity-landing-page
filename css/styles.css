@@ -158,9 +158,12 @@ nav {
 }
 
 
-/* active section */
+/* active states */
 .main-section.active {
   background-color: rgba(242, 240, 240, 0.71);
+}
+.nav-item.active {
+  background: rgba(252, 227, 138, 0.3);
 }
 
 
@@ -248,7 +251,7 @@ nav {
 
 /* buy now section */
 #section-buy-now {
-  padding: 1em;
+  padding: 6em 1em;
 }
 
 #section-buy-now h2 {
@@ -315,7 +318,7 @@ nav {
 
 /* contact us section */
 #section-contact-us {
-  padding: 1em;
+  padding: 6em 1em;
   text-align: center;
 }
 
@@ -338,7 +341,7 @@ nav {
 
 /* footer */
 footer {
-  background: rgba(242, 240, 240, 0.71);
+  background: rgba(252, 227, 138, 0.6);
   padding: 1em;
   text-align: center;
 }
@@ -381,7 +384,7 @@ footer {
   /* header */
   #header-title {
     font-size: 1.5em;
-    left: 20vw;
+    left: 17vw;
     top: 30%;
   }
 
